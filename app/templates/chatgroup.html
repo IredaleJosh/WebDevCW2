@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--====HEADING====-->
+<h1> {{ heading.head }} </h1>
+<hr>
+<div class="chat-main">
+    <!---====DISPLAY ALL MESSAGES FOR THIS CHAT=====-->
+    <div class="display-chats">
+        <h2 class="message-head">Messages</h2>
+        {% for chats in groups.messages%}
+        <div class="chat-msg">
+            <h4 class="display"> {{chats.text}} </h4>
+            <button type="button" class="likes" id="{{ chats.id }}" action="like"> <i class="fa fa-thumbs-up"></i>{{ chats.like }}</button>
+            <button type="button" class="dislikes" id="{{ chats.id }}" action="dislike"><i class="fa fa-thumbs-down"></i>{{ chats.dislike }}</button>
+        </div>
+        {% endfor %}
+    </div>
+
+        <!--====USER TYPES MESSAGE====-->
+        <form action="/chat_group" method="post" name="login" class="send-chat">
+            {{ form.crsf_token }}
+            {{ form.hidden_tag() }}
+            <p class="type-message">
+                {{ form.text(cols="50", rows="3")}}
+            </p>
+            <input class="btn" type="submit" value="Send">
+        </form>
+
+    <form action="/home" method="post">
+        <button class="btn delete" type="submit">Return Home</button>
+    </form>
+</div>
+
+{% endblock %}

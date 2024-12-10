@@ -1,0 +1,45 @@
+<!--====LOGIN PAGE====-->
+{% extends "base.html" %}
+{% block content %}
+
+<!--====HEADING====-->
+<h1> {{ heading.head }} </h1>
+<h2> Login Below </h2>
+
+<!--====USER ENTERS LOGIN====-->
+<form action="/" method="post" name="login" class="login-form">
+    {{ form.crsf_token }}
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }}
+        {{ form.username(size=15) }}
+    </p>
+    <p>
+        <!--====JAVASCRIPT TO HIDE PASSWORD + FUNCTION TO SHOW TEXT====-->
+        {{ form.password.label }}
+        {{ form.password(size=16) }}
+    </p>
+    <p><input class="btn login" type="submit" value="Log In"></p>
+</form>
+
+<!--====DISPLAY ERRORS====-->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+ <ul>
+  {% for message in messages %}
+    <li class="error">{{ message }} </li>
+  {% endfor %}
+ </ul>
+{% endif %}
+{% endwith %}
+
+<!--====SIGNUP PAGE====-->
+<div class="ask-signup">
+    <h3>Don't Have an Account?</h3>
+    <form action="/signup" method="post">
+        <button class="btn signup" >Sign Up Here!</button>
+    </form>
+
+</div>
+
+{% endblock %}

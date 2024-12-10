@@ -1,0 +1,43 @@
+<!--DISPLAY GROUPS, SEND MESSAGES, LIKE OTHER MESSAGES-->
+{% extends "base.html" %}
+{% block content %}
+
+<!--====HEADING====-->
+<h1> {{ heading.head }} </h1>
+<hr>
+
+<div class="review-main">
+        <!--====REVIEW GAME====-->
+    <form action="/review_game" method="post" name="login" class="review-form">
+        <h2>Review Below</h2>
+        <br>
+        {{ form.crsf_token }}
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.rating.label }}
+            {{ form.rating() }}
+        </p>
+        <p>
+            {{ form.text.label }}
+            {{ form.text(cols="40", rows="3") }}
+        </p>
+        <p><input class="btn rvw" type="submit" value="Send Review"></p>
+    </form>
+
+    <!--====LIST OF REVIEWS====-->
+    <div class="display-reviews">
+        <h2>List of {{ heading.head }} Reviews</h2>
+        {% for r in games.review %}
+            <h4 class="dis-rvw top-review"> Username: {{r.username}} </h4>
+            <h4 class="dis-rvw middle-review"> Rating /10: {{r.rating}} </h4>
+            <h4 class="dis-rvw"> "{{r.text}}"</h4>
+        {% endfor %}
+    </div>
+
+    <form action="/search_game" method="post">
+        <button class="btn delete" type="submit">Return Home</button>
+    </form>    
+</div>
+
+
+{% endblock %}

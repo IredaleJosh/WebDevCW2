@@ -1,0 +1,249 @@
+body {
+    background-color: lightblue;
+}
+
+p label {
+    font-weight: bold;
+    font-size: large;
+}
+
+
+/*====HEADERS====*/
+h1 {
+    margin: 20px 20px 20px 20px;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+h5 {
+    color: darkblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*====BUTTONS FORMAT====*/
+.btn{
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    margin: 5px;
+    font-size: 16px;
+}
+
+
+/*====LOGIN AND SIGNUP PAGE====*/
+.error{
+    text-align: center;
+    font-size: large;
+    list-style-type: none;
+    margin-bottom: 50px;
+    color: red;
+}
+
+.login-form {
+    margin: 100px 20px 50px 20px;
+    text-align: center;
+    
+}
+
+.ask-signup {
+    text-align: center;
+    margin: 20px 20px 20px 20px
+}
+
+
+/*=====HOME PAGE=====*/
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 10px;
+    background-color: lightcyan;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5%;
+    max-width: 90%;
+}
+
+.column {
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.click-here {
+    text-align: center;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+
+/*====OPTIONS MENU====*/
+.opt{
+    font-size: xx-large;
+}
+
+.home-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 10px 10px 10px 10px;
+}
+
+.h1-top{
+    margin-right: auto;
+    text-align: center;
+}
+
+.btn-top{
+    margin-right: auto;
+}
+
+.back{
+    text-align: center;
+}
+
+.sidebar{
+    background-color: lightblue;
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: none;
+    border-radius: 10px;
+}
+
+.sidebar a{
+    padding: 10px 10px 10px 10px;
+    display: block;
+    text-decoration: none;
+    color: darkslategray;
+    transition: grid-template-columns 0.5s ease;
+}
+
+.sidebar a:hover{
+    color: white;
+}
+
+/*====VIEWGROUP PAGE====*/
+.display-groups{
+    text-align: center;
+}
+
+/*=====CHAT GROUP PAGE=====*/
+.chat-main{
+    text-align: center;
+}
+
+.display-chats{
+    display: inline-block;
+    background-color: lightcyan;
+    border: 2px solid black;
+    width: auto;
+    margin: 10px;
+    padding: 20px;
+}
+
+.chat-msg{
+    padding: 20px 20px 20px 20px;
+    text-align: left;
+    border-top: 2px solid black;
+}
+
+.send-chat{
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+}
+
+.message-head{
+    margin: 10px 10px 10px 10px;
+    padding: 20px 20px 20px 20px;
+}
+
+.type-message{
+    margin-bottom: 5px;
+}
+
+.likes, .dislikes{
+    padding: 5px 5px 5px 5px;
+    margin: 0px 5px 5px 20px
+}
+
+/*====SEARCH GAME PAGE====*/
+.display-games{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 2px solid black;
+    background-color: lightcyan;
+    text-align: center;
+    padding: 50px 50px 50px 50px;
+    gap: 50px;
+}
+
+.games-main{
+    min-width: 700px;
+}
+
+.groups-main{
+    min-width: 840px;
+}
+
+.grid-games{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.split{
+    color: gray;
+}
+
+
+/*====REVIEW GAME PAGE====*/
+.review-main{
+    text-align: center;
+}
+
+.display-reviews{
+    display: inline-block;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 20px;
+    background-color: lightcyan;
+}
+
+.review-form{
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 20px;
+    background-color: lightcyan;
+}
+
+.review-label{
+    margin-bottom: -35px;
+}
+
+.rvw{
+    margin-top: 30px;
+}
+
+.dis-rvw{
+    margin: 10px 20px 20px 20px
+}
+
+.top-review{
+    border-top: 2px solid black;
+    padding-top: 5px;
+}
+
+.middle-review{
+    color: gray;
+}

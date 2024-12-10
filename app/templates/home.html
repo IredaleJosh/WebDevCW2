@@ -1,0 +1,61 @@
+<!--====PERSONALISED HOME PAGE====-->
+{% extends "base.html" %}
+{% block content %}
+
+<!--====HEADING AND OPTIONS BUTTON====-->
+
+<div class="home-top">
+    <button type="button" class="btn opt btn-top" onclick="openBar()"><i class="fa fa-cog"></i></button>
+    <h1 class="h1-top"> {{ heading.head }} </h1>
+</div>
+
+<div class="main">
+    <div id="contain" class="container">
+        <!--====OPTIONS BAR APPEARS ON RIGHT====-->
+        <div id="sidebar" class="sidebar">
+            <a href="#"onclick="closeBar()">Close</a>
+            <a href="/delete">Delete Account</a>
+            <a href="/">Log Out</a>
+        </div>
+    <section class="column">
+        <!--====DISPLAY USER'S GROUPS====-->
+        <h2>Chat Groups</h2>
+        <hr>
+        {% for group in groups %}
+            <div class="display-assess">
+                <h5> {{group.group_name}} </h5> 
+            <form action="/leave_group" method="post">
+                <button class="btn group" type="submit" name="leave_but" value="{{ group.id }}">Leave Group</button>
+            </form>
+            <form action="/chat_group" method="post">
+                <button class="btn group" type="submit" name="chat_button" value="{{ group.id }}">View Group</button>
+            </form>
+            <hr>
+        {% endfor %}
+        <!--====JOIN NEW GROUPS====-->
+        <form action="/view_group" method="post">
+            <button class="btn delete" type="submit">Join Chat</button>
+        </form>
+    </section>
+    
+    <section class="column">
+        <!--====DISPLAY USER'S REVIEWED GAMES====-->
+        <h2>Games</h2>
+        <hr>
+        <!--LIST OF GAMES WITH REVIEW AND RATING-->
+        {% for g in games %}
+        <div class="display-assess">
+            <h2> {{g.name}} </h2>
+            <h3> {{g.rating}} </h3>
+            <h3> {{g.text}} </h3>
+            <hr>
+        </div>
+        {% endfor %}
+        <!--====JOIN NEW GAMES====-->
+        <form action="/search_game" method="post">
+            <button class="btn delete" type="submit">Search Games</button>
+        </form>
+    </section>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!--DISPLAY GROUPS, SEND MESSAGES, LIKE OTHER MESSAGES-->
+{% extends "base.html" %}
+{% block content %}
+
+<div class="games-main">
+    <!--====SEARCH GAMES====-->
+    <h1> {{ heading.head }} </h1>
+    <div class="display-games" id="display-games">
+        {% for g in games %}
+        <div class="grid-games">
+            <h2> {{g.name}} </h2> 
+            <form action="/review_game" method="post">
+                <button class="btn delete" type="submit" name="review_btn" value="{{ g.id }}">Review This Game</button>
+            </form>
+            {% if average_list[g.id-1] == 0 %}
+                <h2 class="split">No Reviews!</h2>
+            {% else %}
+                <h2 class="split"> Average Rating: {{ average_list[g.id-1] }}</h2>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <form action="/home" method="post">
+        <button class="btn delete" type="submit">Return Home</button>
+    </form>
+</div>
+
+
+{% endblock %}

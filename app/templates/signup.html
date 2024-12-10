@@ -1,0 +1,43 @@
+<!--====SIGNUP PAGE====-->
+{% extends "base.html" %}
+{% block content %}
+
+<!--====HEADING====-->
+<h1> {{ heading.head }} </h1>
+
+<!--====USER SIGNUP====-->
+<form action="/signup" method="post" name="signup" class="login-form">
+    {{ form.crsf_token }}
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.email.label }}
+        {{ form.email(size=25) }}
+    </p>
+    <p>
+        {{ form.username.label }}
+        {{ form.username(size=15) }}
+    </p>
+    <p>
+        {{ form.password.label }}
+        {{ form.password(size=16) }}
+    </p>
+    <p><input class="btn signup" type="submit" value="Create Account"></p>
+</form>
+
+<!--====ERROR MESSAGES====-->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+ <ul>
+  {% for message in messages %}
+    <li class="error">{{ message }} </li>
+  {% endfor %}
+ </ul>
+{% endif %}
+{% endwith %}
+
+<h2>Already Have An Account?</h2>
+<form action="/" method="post" class="back">
+    <button class="btn" >Go Back</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+<!--DISPLAY GROUPS, SEND MESSAGES, LIKE OTHER MESSAGES-->
+{% extends "base.html" %}
+{% block content %}
+
+<!--====DISPLAY GROUPS TO JOIN====-->
+<div class="groups-main">
+    <div class="display-games">
+        {% for group in groups %}
+        <div class="grid-games">
+            <h2> {{group.group_name}} </h2>
+            <h3 class="split"> {{group.desc}} </h3> 
+            <form action="/join_group" method="post">
+                <button class="btn delete" type="submit" name="add_button" value="{{ group.id }}">Join this Chat</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+    <form action="/home" method="post">
+        <button class="btn delete" type="submit">Return Home</button>
+    </form>
+</div>
+
+
+{% endblock %}
